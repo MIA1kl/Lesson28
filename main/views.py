@@ -60,3 +60,8 @@ def add_book(request):
     book = Book(title=title, subtitle=subtitle, description=description, price=price, genre=genre, author=author, year=year)
     book.save()
     return redirect(read)
+
+def delete_book(request, id):
+    book = Book.objects.get(id=id)
+    book.delete()
+    return redirect(read)
