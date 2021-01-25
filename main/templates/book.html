@@ -64,7 +64,13 @@
           <div class="book_container">
 
             {% for book in book_list %}
-                <div class="book_item"> 
+                <div class="book_item
+                    {% if book.is_favorite %} 
+                        marked
+                    {% endif %}
+                ">
+                    
+                    
                     <div class="book_item_header">
                         <h4>{{book.title}}</h4>
                         <ul>
@@ -83,8 +89,15 @@
                         </label>
                         <p>{{book.date}}</p>
                         <div class="action_buttons">
-                            <img src="{% static './icons/unmarked.png' %}" />
+                            {% if book.is_favorite %} 
+                            <a href="{% url 'mark-book' book.id %}"><img src="{% static './icons/marked.png' %}" /></a>
+                            {% else %}
+                            <a href="{% url 'mark-book' book.id %}"><img src="{% static './icons/unmarked.png' %}" /></a>
+                            {% endif %}
+
+
                             <a href="{% url 'delete-book' book.id %}"><img src="{% static './icons/delete.png' %}"/></a>
+                            <a href="{% url 'book' book.id %}">***</a>
                         </div>
                     </div>
                 </div>
