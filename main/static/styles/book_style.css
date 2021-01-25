@@ -76,6 +76,7 @@ ul {
 
 
 .book_item_header h4{
+    text-decoration: none;
     display: flex;
     align-items: center;
     padding: 5px 0px;
@@ -110,7 +111,7 @@ ul {
 .book_item.done{
     background-color: #e0e0e0;
     text-decoration: line-through;
-    color: #757575;
+    /* color: #757575; */
 }
 
 .book_item.done h4, .book_item.done p, .book_item.done span{

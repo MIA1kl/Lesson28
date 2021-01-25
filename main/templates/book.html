@@ -67,12 +67,14 @@
                 <div class="book_item
                     {% if book.is_favorite %} 
                         marked
+                    {% elif book.is_closed %}
+                        done
                     {% endif %}
                 ">
                     
                     
                     <div class="book_item_header">
-                        <h4>{{book.title}}</h4>
+                        <a href="{% url 'close-book' book.id %}"><h4>{{ book.title }}</h4></a>
                         <ul>
                             <li>{{book.subtitle}}</li>
                             <li>{{book.description}}</li>
@@ -84,7 +86,11 @@
                     </div>
                     <div class="book_item_footer">
                         <label class="checkbox_container">
-                            <input type="checkbox" />
+                            <input type="checkbox" 
+                                {% if book.is_closed %}
+                                    checked
+                                {% endif %}
+                            />
                             <span class="checkmark"></span>
                         </label>
                         <p>{{book.date}}</p>

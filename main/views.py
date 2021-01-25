@@ -75,3 +75,9 @@ def mark_book(request, id):
 def book(request, id):
     book_object = Book.objects.get(id=id)
     return render(request, "books_detail.html", {"book_object": book_object})
+
+def close_book(request, id):
+    book = Book.objects.get(id=id)
+    book.is_closed = not book.is_closed
+    book.save()
+    return redirect(read)
