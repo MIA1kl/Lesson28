@@ -8,7 +8,7 @@
     <!-- <link rel="stylesheet" href="./styles/index.css" /> -->
     <link rel="stylesheet" href="{% static 'styles/book_style.css' %}" />
     <!-- <link rel="stylesheet" href="./styles/checkbox.css"> -->
-    <!-- <link rel="stylesheet" href="{% static 'styles/checkbox.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'styles/checkbox.css' %}">
   </head>
 <body>
     <section>
@@ -55,9 +55,36 @@
             />            
             <button class="create_button">Add</button>
           </div>
+
           <div class="book_container">
-            <div class="book_item"> </div>
-          </div>
+
+            {% for book in book_list %}
+                <div class="book_item"> 
+                    <div class="book_item_header">
+                        <h4>{{book.title}}</h4>
+                        <ul>
+                            <li>{{book.subtitle}}</li>
+                            <li>{{book.description}}</li>
+                            <li>{{book.genre}}</li>
+                            <li>{{book.author}}</li>
+                            <li>{{book.year}}</li>
+                        </ul>
+                        <h3>{{book.price}}</h3>
+                    </div>
+                    <div class="book_item_footer">
+                        <label class="checkbox_container">
+                            <input type="checkbox" />
+                            <span class="checkmark"></span>
+                        </label>
+                        <p>{{book.date}}</p>
+                        <div class="action_buttons">
+                            <img src="../static/icons/unmarked.png" />
+                            <img src="../static/icons/delete.png"/>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     </section>
 </body>
 </html>
