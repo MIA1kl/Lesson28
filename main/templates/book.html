@@ -6,6 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Ваша запись была изменена успешно</h1>
+    {% for book in book_list %}
+        <h3>{{ book.title }} - {{ book.date }}
+            {{book.genre}}
+        </h3>
+    {% endfor %}
 </body>
 </html>

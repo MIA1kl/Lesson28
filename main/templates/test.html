@@ -56,6 +56,7 @@
                         {% endif %}
                         
                         <a href="{% url 'delete-todo' todo.id %}"><img src="{% static './icons/delete.png' %}" /></a>
+                        <a href="{% url 'todo' todo.id %}">***</a>
                     </div>
                 </div>
             </div>
