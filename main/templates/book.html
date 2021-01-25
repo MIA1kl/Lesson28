@@ -1,15 +1,63 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo</title>
+    <!-- <link rel="stylesheet" href="./styles/index.css" /> -->
+    <link rel="stylesheet" href="{% static 'styles/book_style.css' %}" />
+    <!-- <link rel="stylesheet" href="./styles/checkbox.css"> -->
+    <!-- <link rel="stylesheet" href="{% static 'styles/checkbox.css' %}"> -->
+  </head>
 <body>
-    {% for book in book_list %}
-        <h3>{{ book.title }} - {{ book.date }}
-            {{book.genre}}
-        </h3>
-    {% endfor %}
+    <section>
+        <div class="create_container">
+            <input
+              class="create_input"
+              type="text"
+              placeholder="Write here a title"
+            />
+            <input
+              class="create_input"
+              type="text"
+              placeholder="Write here a subtitle"
+            />
+            <input
+              class="create_input"
+              type="text"
+              placeholder="Write here a description"
+            />
+            <input
+              class="create_input"
+              type="text"
+              placeholder="Write here a price"
+            />
+            <input
+              class="create_input"
+              type="text"
+              placeholder="Write here a genre"
+            />
+            <input
+              class="create_input"
+              type="text"
+              placeholder="Write here an author"
+            />
+            <input
+              class="create_input"
+              type="text"
+              placeholder="Write here a year"
+            />
+            <input
+              class="create_input"
+              type="text"
+              placeholder="Write here a date"
+            />            
+            <button class="create_button">Add</button>
+          </div>
+          <div class="book_container">
+            <div class="book_item"> </div>
+          </div>
+    </section>
 </body>
 </html>
